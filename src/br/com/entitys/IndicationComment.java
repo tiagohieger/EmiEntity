@@ -8,8 +8,8 @@ import br.com.constants.HasIndicationComment;
 import br.com.constants.HasText;
 import br.com.constants.HasUser;
 
-@Table(name = IndicationComments.TABLE_NAME)
-public class IndicationComments extends Entity implements HasUser, HasIndicationComment, HasIndication, HasText {
+@Table(name = IndicationComment.TABLE_NAME)
+public class IndicationComment extends Entity implements HasUser, HasIndicationComment, HasIndication, HasText {
 
     private static final long serialVersionUID = 5182191272351110768L;
 
@@ -24,16 +24,16 @@ public class IndicationComments extends Entity implements HasUser, HasIndication
         public static final String TEXT = "text_";
     }
 
-    @Fk(table = User.TABLE_NAME, id = User.Columns.ID, name = IndicationComments.Columns.USER, notNull = true)
+    @Fk(table = User.TABLE_NAME, id = User.Columns.ID, name = IndicationComment.Columns.USER, notNull = true)
     private User user;
 
-    @Fk(table = IndicationComments.TABLE_NAME, id = IndicationComments.Columns.ID, name = IndicationComments.Columns.INDICATION_COMMENT)
-    private IndicationComments indicationComments;
+    @Fk(table = IndicationComment.TABLE_NAME, id = IndicationComment.Columns.ID, name = IndicationComment.Columns.INDICATION_COMMENT)
+    private IndicationComment indicationComments;
 
-    @Fk(table = Indication.TABLE_NAME, id = Indication.Columns.ID, name = IndicationComments.Columns.INDICATION, notNull = true)
+    @Fk(table = Indication.TABLE_NAME, id = Indication.Columns.ID, name = IndicationComment.Columns.INDICATION, notNull = true)
     private Indication indication;
 
-    @Column(isText = true, name = IndicationComments.Columns.TEXT)
+    @Column(isText = true, name = IndicationComment.Columns.TEXT)
     private String text;
 
     @Override
@@ -47,12 +47,12 @@ public class IndicationComments extends Entity implements HasUser, HasIndication
     }
 
     @Override
-    public IndicationComments getIndicationComments() {
+    public IndicationComment getIndicationComments() {
         return indicationComments;
     }
 
     @Override
-    public void setIndicationComments(IndicationComments indicationComments) {
+    public void setIndicationComments(IndicationComment indicationComments) {
         this.indicationComments = indicationComments;
     }
 

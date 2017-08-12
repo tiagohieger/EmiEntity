@@ -1,11 +1,11 @@
 package br.com.constants;
 
-import br.com.entitys.CompanyComments;
+import br.com.entitys.CompanyComment;
 
 public interface HasCompanyComment {
 
-    public CompanyComments getCompanyComments();
+    public CompanyComment getCompanyComments();
 
-    public void setCompanyComments(CompanyComments companyComments);
+    public void setCompanyComments(CompanyComment companyComments);
 
 }

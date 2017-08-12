@@ -1,11 +1,11 @@
 package br.com.constants;
 
-import br.com.entitys.IndicationComments;
+import br.com.entitys.IndicationComment;
 
 public interface HasIndicationComment {
     
-    public IndicationComments getIndicationComments();
+    public IndicationComment getIndicationComments();
     
-    public void setIndicationComments(IndicationComments indicationComments);
+    public void setIndicationComments(IndicationComment indicationComments);
 
 }

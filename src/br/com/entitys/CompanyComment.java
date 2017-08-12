@@ -8,8 +8,8 @@ import br.com.constants.HasCompanyComment;
 import br.com.constants.HasText;
 import br.com.constants.HasUser;
 
-@Table(name = CompanyComments.TABLE_NAME)
-public class CompanyComments extends Entity implements HasUser, HasCompanyComment, HasClient, HasText {
+@Table(name = CompanyComment.TABLE_NAME)
+public class CompanyComment extends Entity implements HasUser, HasCompanyComment, HasClient, HasText {
 
     private static final long serialVersionUID = 3441815637028753587L;
 
@@ -24,16 +24,16 @@ public class CompanyComments extends Entity implements HasUser, HasCompanyCommen
         public static final String TEXT = "text_";
     }
 
-    @Fk(table = User.TABLE_NAME, id = User.Columns.ID, name = CompanyComments.Columns.USER, notNull = true)
+    @Fk(table = User.TABLE_NAME, id = User.Columns.ID, name = CompanyComment.Columns.USER, notNull = true)
     private User user;
 
-    @Fk(table = CompanyComments.TABLE_NAME, id = CompanyComments.Columns.ID, name = CompanyComments.Columns.COMPANY_COMMENT)
-    private CompanyComments companyComments;
+    @Fk(table = CompanyComment.TABLE_NAME, id = CompanyComment.Columns.ID, name = CompanyComment.Columns.COMPANY_COMMENT)
+    private CompanyComment companyComments;
 
-    @Fk(table = Client.TABLE_NAME, id = Client.Columns.ID, name = CompanyComments.Columns.CLIENT, notNull = true)
+    @Fk(table = Client.TABLE_NAME, id = Client.Columns.ID, name = CompanyComment.Columns.CLIENT, notNull = true)
     private Client client;
 
-    @Column(isText = true, name = CompanyComments.Columns.TEXT)
+    @Column(isText = true, name = CompanyComment.Columns.TEXT)
     private String text;
 
     @Override
@@ -47,12 +47,12 @@ public class CompanyComments extends Entity implements HasUser, HasCompanyCommen
     }
 
     @Override
-    public CompanyComments getCompanyComments() {
+    public CompanyComment getCompanyComments() {
         return companyComments;
     }
 
     @Override
-    public void setCompanyComments(CompanyComments companyComments) {
+    public void setCompanyComments(CompanyComment companyComments) {
         this.companyComments = companyComments;
     }
 
