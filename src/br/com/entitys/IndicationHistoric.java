@@ -52,7 +52,7 @@ public class IndicationHistoric extends Entity implements HasDocument, HasName, 
     }
 
     @Column(isBigInt = true, name = IndicationHistoric.Columns.DOCUMENT)
-    private Integer document;
+    private Long document;
 
     @Column(name = IndicationHistoric.Columns.NAME, isText = true)
     private String name;
@@ -61,7 +61,7 @@ public class IndicationHistoric extends Entity implements HasDocument, HasName, 
     private PersonType personType;
 
     @Column(name = IndicationHistoric.Columns.PHONE, isBigInt = true)
-    private Integer phone;
+    private Long phone;
 
     @Column(name = IndicationHistoric.Columns.EMAIL, isText = true)
     private String email;
@@ -100,12 +100,12 @@ public class IndicationHistoric extends Entity implements HasDocument, HasName, 
     private String file;
 
     @Override
-    public Integer getDocument() {
+    public Long getDocument() {
         return document;
     }
 
     @Override
-    public void setDocument(Integer document) {
+    public void setDocument(Long document) {
         this.document = document;
     }
 
@@ -130,12 +130,12 @@ public class IndicationHistoric extends Entity implements HasDocument, HasName, 
     }
 
     @Override
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
     @Override
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 

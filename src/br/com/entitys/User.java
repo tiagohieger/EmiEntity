@@ -52,10 +52,10 @@ public class User extends Entity implements HasBank, HasAddress, HasName, HasLog
     private String password;
 
     @Column(name = User.Columns.PHONE, isBigInt = true, unique = true)
-    private Integer phone;
+    private Long phone;
 
     @Column(name = User.Columns.DOCUMENT, isBigInt = true, unique = true)
-    private Integer document;
+    private Long document;
 
     @Column(name = User.Columns.PERSON_TYPE, isText = true)
     private PersonType personType;
@@ -114,22 +114,22 @@ public class User extends Entity implements HasBank, HasAddress, HasName, HasLog
     }
 
     @Override
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
     @Override
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
     @Override
-    public Integer getDocument() {
+    public Long getDocument() {
         return document;
     }
 
     @Override
-    public void setDocument(Integer document) {
+    public void setDocument(Long document) {
         this.document = document;
     }
 

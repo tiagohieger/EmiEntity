@@ -54,7 +54,7 @@ public class Indication extends Entity implements HasUser, HasAddress, HasPaymen
     private Client client;
 
     @Column(isBigInt = true, name = Indication.Columns.DOCUMENT)
-    private Integer document;
+    private Long document;
 
     @Column(name = Indication.Columns.NAME, isText = true)
     private String name;
@@ -63,7 +63,7 @@ public class Indication extends Entity implements HasUser, HasAddress, HasPaymen
     private PersonType personType;
 
     @Column(name = Indication.Columns.PHONE, isBigInt = true)
-    private Integer phone;
+    private Long phone;
 
     @Column(name = Indication.Columns.EMAIL, isText = true)
     private String email;
@@ -115,12 +115,12 @@ public class Indication extends Entity implements HasUser, HasAddress, HasPaymen
     }
 
     @Override
-    public Integer getDocument() {
+    public Long getDocument() {
         return document;
     }
 
     @Override
-    public void setDocument(Integer document) {
+    public void setDocument(Long document) {
         this.document = document;
     }
 
@@ -145,12 +145,12 @@ public class Indication extends Entity implements HasUser, HasAddress, HasPaymen
     }
 
     @Override
-    public Integer getPhone() {
+    public Long getPhone() {
         return phone;
     }
 
     @Override
-    public void setPhone(Integer phone) {
+    public void setPhone(Long phone) {
         this.phone = phone;
     }
 
