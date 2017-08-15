@@ -17,10 +17,11 @@ public class ClientFilter extends EntityFilter {
     }
 
     private Date minRegistrationDate, maxRegistrationDate;
-    private Long document, phone;
+    private Long phone;
     private PersonType type;
     private Boolean isActive;
     private Integer user;
+    private String document;
 
     public Date getMinRegistrationDate() {
         return minRegistrationDate;
@@ -38,11 +39,11 @@ public class ClientFilter extends EntityFilter {
         this.maxRegistrationDate = maxRegistrationDate;
     }
 
-    public Long getDocument() {
+    public String getDocument() {
         return document;
     }
 
-    public void setDocument(Long document) {
+    public void setDocument(String document) {
         this.document = document;
     }
 

@@ -22,7 +22,8 @@ public class IndicationFilter extends EntityFilter {
     private Integer user, client;
     private IndicationStatus status;
     private PersonType type;
-    private Long document, phone;
+    private Long  phone;
+    private String document;
 
     public Date getMinRegistrationDate() {
         return minRegistrationDate;
@@ -72,11 +73,11 @@ public class IndicationFilter extends EntityFilter {
         this.type = type;
     }
 
-    public Long getDocument() {
+    public String getDocument() {
         return document;
     }
 
-    public void setDocument(Long document) {
+    public void setDocument(String document) {
         this.document = document;
     }
 

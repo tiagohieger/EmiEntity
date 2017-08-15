@@ -18,10 +18,10 @@ public class UserFilter extends EntityFilter {
     }
 
     private Date minRegistrationDate, maxRegistrationDate;
-    private Long document, phone;
+    private Long phone;
     private PersonType type;
     private Boolean isActive;
-    private String login, password;
+    private String login, password, document;
 
     public Date getMinRegistrationDate() {
         return minRegistrationDate;
@@ -39,11 +39,11 @@ public class UserFilter extends EntityFilter {
         this.maxRegistrationDate = maxRegistrationDate;
     }
 
-    public Long getDocument() {
+    public String getDocument() {
         return document;
     }
 
-    public void setDocument(Long document) {
+    public void setDocument(String document) {
         this.document = document;
     }
 
