@@ -1,7 +1,7 @@
 package br.com.filters;
 
-import br.com.entitys.Alert;
 import br.com.entitys.Entity;
+import br.com.entitys.Evaluation;
 import java.util.Date;
 
 public class EvaluationFilter extends EntityFilter {
@@ -10,7 +10,7 @@ public class EvaluationFilter extends EntityFilter {
 
     public static class OrderBy {
 
-        public static final String REGISTRATION_DATE = Entity.fullColumn(Alert.TABLE_NAME, Alert.Columns.REGISTRATION_DATE);
+        public static final String REGISTRATION_DATE = Entity.fullColumn(Evaluation.TABLE_NAME, Evaluation.Columns.REGISTRATION_DATE);
     }
 
     private Date minRegistrationDate, maxRegistrationDate;
