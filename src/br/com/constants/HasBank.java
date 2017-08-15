@@ -1,10 +1,11 @@
 package br.com.constants;
 
 import br.com.entitys.Bank;
+import java.util.List;
 
 public interface HasBank {
 
-    public Bank getBank();
+    public List<Bank> getBanks();
 
-    public void setBank(Bank bank);
+    public void setBanks(List<Bank> banks);
 }

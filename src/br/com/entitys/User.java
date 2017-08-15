@@ -3,20 +3,23 @@ package br.com.entitys;
 import br.com.annotations.Column;
 import br.com.annotations.Fk;
 import br.com.annotations.Table;
+import br.com.annotations.Transient;
 import br.com.constants.HasAddress;
-import br.com.constants.HasBank;
 import br.com.constants.HasDocument;
 import br.com.constants.HasActive;
+import br.com.constants.HasBank;
 import br.com.constants.HasLogin;
 import br.com.constants.HasName;
 import br.com.constants.HasPassword;
 import br.com.constants.HasPersonType;
 import br.com.constants.HasPhone;
 import br.com.constants.PersonType;
+import java.util.LinkedList;
+import java.util.List;
 
 @Table(name = User.TABLE_NAME)
-public class User extends Entity implements HasBank, HasAddress, HasName, HasLogin, HasPassword,
-        HasPhone, HasDocument, HasPersonType, HasActive {
+public class User extends Entity implements HasAddress, HasName, HasLogin, HasPassword,
+        HasPhone, HasDocument, HasPersonType, HasActive, HasBank {
 
     private static final long serialVersionUID = 7034854585695742021L;
 
@@ -25,7 +28,6 @@ public class User extends Entity implements HasBank, HasAddress, HasName, HasLog
 
     public interface Columns extends Entity.Columns {
 
-        public static final String BANK = "bank";
         public static final String ADDRESS = "address";
         public static final String NAME = "name_";
         public static final String LOGIN = "login";
@@ -35,9 +37,6 @@ public class User extends Entity implements HasBank, HasAddress, HasName, HasLog
         public static final String PERSON_TYPE = "person_type";
         public static final String IS_ACTIVE = "is_active";
     }
-
-    @Fk(table = Bank.TABLE_NAME, id = Bank.Columns.ID, name = User.Columns.BANK, notNull = true)
-    private Bank bank;
 
     @Fk(table = Address.TABLE_NAME, id = Address.Columns.ID, name = User.Columns.ADDRESS, notNull = true)
     private Address address;
@@ -63,15 +62,8 @@ public class User extends Entity implements HasBank, HasAddress, HasName, HasLog
     @Column(name = User.Columns.IS_ACTIVE, notNull = true, defaultValue = "true")
     private Boolean isActive;
 
-    @Override
-    public Bank getBank() {
-        return bank;
-    }
-
-    @Override
-    public void setBank(Bank bank) {
-        this.bank = bank;
-    }
+    @Transient
+    private List<Bank> banks = new LinkedList<>();
 
     @Override
     public Address getAddress() {
@@ -151,6 +143,16 @@ public class User extends Entity implements HasBank, HasAddress, HasName, HasLog
     @Override
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
+    }
+
+    @Override
+    public List<Bank> getBanks() {
+        return banks;
+    }
+
+    @Override
+    public void setBanks(List<Bank> banks) {
+        this.banks = banks;
     }
 
 }
