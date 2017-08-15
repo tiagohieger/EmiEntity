@@ -51,8 +51,8 @@ public class IndicationHistoric extends Entity implements HasDocument, HasName, 
         public static final String FILE = "file_";
     }
 
-    @Column(isBigInt = true, name = IndicationHistoric.Columns.DOCUMENT)
-    private Long document;
+    @Column(length = 14, name = IndicationHistoric.Columns.DOCUMENT)
+    private String document;
 
     @Column(name = IndicationHistoric.Columns.NAME, isText = true)
     private String name;
@@ -100,12 +100,12 @@ public class IndicationHistoric extends Entity implements HasDocument, HasName, 
     private String file;
 
     @Override
-    public Long getDocument() {
+    public String getDocument() {
         return document;
     }
 
     @Override
-    public void setDocument(Long document) {
+    public void setDocument(String document) {
         this.document = document;
     }
 

@@ -72,8 +72,8 @@ public class Client extends Entity implements HasAddress, HasUser, HasContact, H
     @Column(name = Client.Columns.PERSON_TYPE, isText = true)
     private PersonType personType;
 
-    @Column(name = Client.Columns.DOCUMENT, isBigInt = true, unique = true)
-    private Long document;
+    @Column(name = Client.Columns.DOCUMENT, length = 14, unique = true)
+    private String document;
 
     @Column(name = Client.Columns.IS_ACTIVE, notNull = true, defaultValue = "true")
     private Boolean isActive;
@@ -172,12 +172,12 @@ public class Client extends Entity implements HasAddress, HasUser, HasContact, H
     }
 
     @Override
-    public Long getDocument() {
+    public String getDocument() {
         return document;
     }
 
     @Override
-    public void setDocument(Long document) {
+    public void setDocument(String document) {
         this.document = document;
     }
 

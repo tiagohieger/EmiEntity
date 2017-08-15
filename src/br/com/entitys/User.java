@@ -54,8 +54,8 @@ public class User extends Entity implements HasBank, HasAddress, HasName, HasLog
     @Column(name = User.Columns.PHONE, isBigInt = true, unique = true)
     private Long phone;
 
-    @Column(name = User.Columns.DOCUMENT, isBigInt = true, unique = true)
-    private Long document;
+    @Column(name = User.Columns.DOCUMENT, length = 14, unique = true)
+    private String document;
 
     @Column(name = User.Columns.PERSON_TYPE, isText = true)
     private PersonType personType;
@@ -124,12 +124,12 @@ public class User extends Entity implements HasBank, HasAddress, HasName, HasLog
     }
 
     @Override
-    public Long getDocument() {
+    public String getDocument() {
         return document;
     }
 
     @Override
-    public void setDocument(Long document) {
+    public void setDocument(String document) {
         this.document = document;
     }
 

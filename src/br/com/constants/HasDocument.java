@@ -2,8 +2,8 @@ package br.com.constants;
 
 public interface HasDocument {
 
-    public Long getDocument();
+    public String getDocument();
 
-    public void setDocument(Long document);
+    public void setDocument(String document);
 
 }

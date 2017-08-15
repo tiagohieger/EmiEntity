@@ -53,8 +53,8 @@ public class Indication extends Entity implements HasUser, HasAddress, HasPaymen
     @Fk(table = Client.TABLE_NAME, id = Client.Columns.ID, name = Indication.Columns.CLIENT, notNull = true)
     private Client client;
 
-    @Column(isBigInt = true, name = Indication.Columns.DOCUMENT)
-    private Long document;
+    @Column(length = 14, name = Indication.Columns.DOCUMENT)
+    private String document;
 
     @Column(name = Indication.Columns.NAME, isText = true)
     private String name;
@@ -115,12 +115,12 @@ public class Indication extends Entity implements HasUser, HasAddress, HasPaymen
     }
 
     @Override
-    public Long getDocument() {
+    public String getDocument() {
         return document;
     }
 
     @Override
-    public void setDocument(Long document) {
+    public void setDocument(String document) {
         this.document = document;
     }
 
