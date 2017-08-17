@@ -1,5 +1,6 @@
 package br.com.filters;
 
+import br.com.constants.HasType;
 import br.com.constants.IndicationStatus;
 import br.com.constants.PersonType;
 import br.com.entitys.Entity;
@@ -21,7 +22,7 @@ public class IndicationFilter extends EntityFilter {
     private Date minRegistrationDate, maxRegistrationDate;
     private Integer user, client;
     private IndicationStatus status;
-    private PersonType type;
+    private PersonType personType;
     private Long  phone;
     private String document;
 
@@ -65,12 +66,12 @@ public class IndicationFilter extends EntityFilter {
         this.status = status;
     }
 
-    public PersonType getType() {
-        return type;
+    public PersonType getPersonType() {
+        return personType;
     }
 
-    public void setType(PersonType type) {
-        this.type = type;
+    public void setPersonType(PersonType personType) {
+        this.personType = personType;
     }
 
     public String getDocument() {

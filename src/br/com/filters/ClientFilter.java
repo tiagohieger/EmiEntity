@@ -13,7 +13,7 @@ public class ClientFilter extends EntityFilter {
 
         public static final String NAME = Entity.fullColumn(Client.TABLE_NAME, Client.Columns.NAME);
         public static final String REGISTRATION_DATE = Entity.fullColumn(Client.TABLE_NAME, Client.Columns.REGISTRATION_DATE);
-        public static final String PERSON_TYPE = Entity.fullColumn(Client.TABLE_NAME, Client.Columns.PERSON_TYPE);
+        public static final String PERSON_TYPE = Entity.fullColumn(Client.TABLE_NAME, Client.Columns.TYPE);
     }
 
     private Date minRegistrationDate, maxRegistrationDate;

@@ -13,6 +13,7 @@ import br.com.constants.HasName;
 import br.com.constants.HasPassword;
 import br.com.constants.HasPersonType;
 import br.com.constants.HasPhone;
+import br.com.constants.HasType;
 import br.com.constants.HasUser;
 import br.com.constants.PersonType;
 import java.util.LinkedList;
@@ -20,7 +21,7 @@ import java.util.List;
 
 @Table(name = User.TABLE_NAME)
 public class User extends Entity implements HasAddress, HasName, HasLogin, HasPassword,
-        HasPhone, HasDocument, HasPersonType, HasActive, HasBank, HasUser {
+        HasPhone, HasDocument, HasType<PersonType>, HasActive, HasBank, HasUser {
 
     private static final long serialVersionUID = 7034854585695742021L;
 
@@ -35,7 +36,7 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
         public static final String PASSWORD = "password_";
         public static final String PHONE = "phone";
         public static final String DOCUMENT = "document_";
-        public static final String PERSON_TYPE = "person_type";
+        public static final String TYPE = "type";
         public static final String IS_ACTIVE = "is_active";
         public static final String PHOTO = "photo";
         public static final String USER = "user_";
@@ -62,8 +63,8 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
     @Column(name = User.Columns.DOCUMENT, length = 14, unique = true)
     private String document;
 
-    @Column(name = User.Columns.PERSON_TYPE, isText = true)
-    private PersonType personType;
+    @Column(name = User.Columns.TYPE, isText = true)
+    private PersonType type;
 
     @Column(name = User.Columns.IS_ACTIVE, notNull = true, defaultValue = "true")
     private Boolean isActive;
@@ -142,13 +143,13 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
     }
 
     @Override
-    public PersonType getPersonType() {
-        return personType;
+    public PersonType getType() {
+        return type;
     }
 
     @Override
-    public void setPersonType(PersonType personType) {
-        this.personType = personType;
+    public void setType(PersonType type) {
+        this.type = type;
     }
 
     @Override

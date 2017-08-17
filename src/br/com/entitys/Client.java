@@ -12,11 +12,11 @@ import br.com.constants.HasFantasy;
 import br.com.constants.HasActive;
 import br.com.constants.HasDescription;
 import br.com.constants.HasName;
-import br.com.constants.HasPersonType;
 import br.com.constants.HasPhone;
 import br.com.constants.HasPhoneType;
 import br.com.constants.HasPhoto;
 import br.com.constants.HasProducts;
+import br.com.constants.HasType;
 import br.com.constants.HasUser;
 import br.com.constants.PersonType;
 import br.com.constants.PhoneType;
@@ -25,7 +25,7 @@ import java.util.List;
 
 @Table(name = Client.TABLE_NAME)
 public class Client extends Entity implements HasAddress, HasUser, HasContact, HasFantasy, HasEmail, HasPhone,
-        HasPhoneType, HasPersonType, HasDocument, HasActive, HasName, HasProducts, HasDescription, HasPhoto {
+        HasPhoneType, HasType<PersonType>, HasDocument, HasActive, HasName, HasProducts, HasDescription, HasPhoto {
 
     private static final long serialVersionUID = -2177127966298746615L;
 
@@ -42,7 +42,7 @@ public class Client extends Entity implements HasAddress, HasUser, HasContact, H
         public static final String EMAIL = "email";
         public static final String PHONE = "phone";
         public static final String PHONE_TYPE = "phone_type";
-        public static final String PERSON_TYPE = "person_type";
+        public static final String TYPE = "type";
         public static final String DOCUMENT = "document_";
         public static final String IS_ACTIVE = "is_active";
         public static final String DESCRIPTION = "description";
@@ -73,8 +73,8 @@ public class Client extends Entity implements HasAddress, HasUser, HasContact, H
     @Column(name = Client.Columns.PHONE_TYPE, isText = true)
     private PhoneType phoneType;
 
-    @Column(name = Client.Columns.PERSON_TYPE, isText = true)
-    private PersonType personType;
+    @Column(name = Client.Columns.TYPE, isText = true)
+    private PersonType type;
 
     @Column(name = Client.Columns.DOCUMENT, length = 14, unique = true)
     private String document;
@@ -172,13 +172,13 @@ public class Client extends Entity implements HasAddress, HasUser, HasContact, H
     }
 
     @Override
-    public PersonType getPersonType() {
-        return personType;
+    public PersonType getType() {
+        return type;
     }
 
     @Override
-    public void setPersonType(PersonType personType) {
-        this.personType = personType;
+    public void setType(PersonType type) {
+        this.type = type;
     }
 
     @Override

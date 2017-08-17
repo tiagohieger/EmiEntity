@@ -7,6 +7,7 @@ import br.com.constants.HasAddress;
 import br.com.constants.HasClient;
 import br.com.constants.HasDocument;
 import br.com.constants.HasEmail;
+import br.com.constants.HasIdentifier;
 import br.com.constants.HasName;
 import br.com.constants.HasNote;
 import br.com.constants.HasPaymentVoucher;
@@ -19,7 +20,7 @@ import br.com.constants.PersonType;
 
 @Table(name = Indication.TABLE_NAME)
 public class Indication extends Entity implements HasUser, HasAddress, HasPaymentVoucher, HasClient, HasDocument,
-        HasName, HasPersonType, HasPhone, HasEmail, HasIndicationStatus, HasNote {
+        HasName, HasPersonType, HasPhone, HasEmail, HasIndicationStatus, HasNote, HasIdentifier {
 
     private static final long serialVersionUID = -7488500782593964146L;
 
@@ -29,6 +30,7 @@ public class Indication extends Entity implements HasUser, HasAddress, HasPaymen
     public interface Columns extends Entity.Columns {
 
         public static final String USER = "user_";
+        public static final String IDENTIFIER = "identifier";
         public static final String ADDRESS = "address";
         public static final String PAYMENT_VOUCHER = "payment_voucher";
         public static final String CLIENT = "client";
@@ -44,6 +46,9 @@ public class Indication extends Entity implements HasUser, HasAddress, HasPaymen
     @Fk(table = User.TABLE_NAME, id = User.Columns.ID, name = Indication.Columns.USER, notNull = true)
     private User user;
 
+    @Column(isText = true, name = Indication.Columns.IDENTIFIER)
+    private String identifier;
+    
     @Fk(table = Address.TABLE_NAME, id = Address.Columns.ID, name = Indication.Columns.ADDRESS, notNull = true)
     private Address address;
 
@@ -84,6 +89,16 @@ public class Indication extends Entity implements HasUser, HasAddress, HasPaymen
         this.user = user;
     }
 
+    @Override
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    @Override
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+    
     @Override
     public Address getAddress() {
         return address;

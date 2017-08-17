@@ -14,7 +14,7 @@ public class UserFilter extends EntityFilter {
         public static final String NAME = Entity.fullColumn(User.TABLE_NAME, User.Columns.NAME);
         public static final String LOGIN = Entity.fullColumn(User.TABLE_NAME, User.Columns.LOGIN);
         public static final String REGISTRATION_DATE = Entity.fullColumn(User.TABLE_NAME, User.Columns.REGISTRATION_DATE);
-        public static final String PERSON_TYPE = Entity.fullColumn(User.TABLE_NAME, User.Columns.PERSON_TYPE);
+        public static final String PERSON_TYPE = Entity.fullColumn(User.TABLE_NAME, User.Columns.TYPE);
     }
 
     private Date minRegistrationDate, maxRegistrationDate;
