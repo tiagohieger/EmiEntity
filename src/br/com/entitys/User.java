@@ -13,13 +13,14 @@ import br.com.constants.HasName;
 import br.com.constants.HasPassword;
 import br.com.constants.HasPersonType;
 import br.com.constants.HasPhone;
+import br.com.constants.HasUser;
 import br.com.constants.PersonType;
 import java.util.LinkedList;
 import java.util.List;
 
 @Table(name = User.TABLE_NAME)
 public class User extends Entity implements HasAddress, HasName, HasLogin, HasPassword,
-        HasPhone, HasDocument, HasPersonType, HasActive, HasBank {
+        HasPhone, HasDocument, HasPersonType, HasActive, HasBank, HasUser {
 
     private static final long serialVersionUID = 7034854585695742021L;
 
@@ -36,7 +37,12 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
         public static final String DOCUMENT = "document_";
         public static final String PERSON_TYPE = "person_type";
         public static final String IS_ACTIVE = "is_active";
+        public static final String PHOTO = "photo";
+        public static final String USER = "user_";
     }
+
+    @Fk(table = User.TABLE_NAME, id = User.Columns.ID, name = User.Columns.USER)
+    private User user;
 
     @Fk(table = Address.TABLE_NAME, id = Address.Columns.ID, name = User.Columns.ADDRESS, notNull = true)
     private Address address;
@@ -64,6 +70,16 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
 
     @Transient
     private List<Bank> banks = new LinkedList<>();
+
+    @Override
+    public User getUser() {
+        return user;
+    }
+
+    @Override
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     @Override
     public Address getAddress() {

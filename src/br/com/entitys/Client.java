@@ -10,10 +10,12 @@ import br.com.constants.HasDocument;
 import br.com.constants.HasEmail;
 import br.com.constants.HasFantasy;
 import br.com.constants.HasActive;
+import br.com.constants.HasDescription;
 import br.com.constants.HasName;
 import br.com.constants.HasPersonType;
 import br.com.constants.HasPhone;
 import br.com.constants.HasPhoneType;
+import br.com.constants.HasPhoto;
 import br.com.constants.HasProducts;
 import br.com.constants.HasUser;
 import br.com.constants.PersonType;
@@ -23,7 +25,7 @@ import java.util.List;
 
 @Table(name = Client.TABLE_NAME)
 public class Client extends Entity implements HasAddress, HasUser, HasContact, HasFantasy, HasEmail, HasPhone,
-        HasPhoneType, HasPersonType, HasDocument, HasActive, HasName, HasProducts {
+        HasPhoneType, HasPersonType, HasDocument, HasActive, HasName, HasProducts, HasDescription, HasPhoto {
 
     private static final long serialVersionUID = -2177127966298746615L;
 
@@ -43,6 +45,8 @@ public class Client extends Entity implements HasAddress, HasUser, HasContact, H
         public static final String PERSON_TYPE = "person_type";
         public static final String DOCUMENT = "document_";
         public static final String IS_ACTIVE = "is_active";
+        public static final String DESCRIPTION = "description";
+        public static final String PHOTO = "photo";
     }
 
     @Fk(table = Address.TABLE_NAME, id = Address.Columns.ID, name = Client.Columns.ADDRESS, notNull = true)
@@ -77,6 +81,12 @@ public class Client extends Entity implements HasAddress, HasUser, HasContact, H
 
     @Column(name = Client.Columns.IS_ACTIVE, notNull = true, defaultValue = "true")
     private Boolean isActive;
+
+    @Column(name = Client.Columns.DESCRIPTION, isText = true)
+    private String description;
+
+    @Column(name = Client.Columns.PHOTO, isText = true)
+    private String photo;
 
     @Transient
     private List<Product> products = new LinkedList<>();
@@ -199,6 +209,26 @@ public class Client extends Entity implements HasAddress, HasUser, HasContact, H
     @Override
     public void setProducts(List<Product> products) {
         this.products = products;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    @Override
+    public String getPhoto() {
+        return photo;
+    }
+
+    @Override
+    public void setPhoto(String photo) {
+        this.photo = photo;
     }
 
 }

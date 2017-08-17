@@ -4,10 +4,11 @@ import br.com.annotations.Column;
 import br.com.annotations.Fk;
 import br.com.annotations.Table;
 import br.com.constants.HasClient;
+import br.com.constants.HasDescription;
 import br.com.constants.HasName;
 
 @Table(name = Product.TABLE_NAME)
-public class Product extends Entity implements HasClient, HasName {
+public class Product extends Entity implements HasClient, HasName, HasDescription {
 
     private static final long serialVersionUID = -6896021326677615611L;
 
@@ -18,6 +19,7 @@ public class Product extends Entity implements HasClient, HasName {
 
         public static final String CLIENT = "client";
         public static final String NAME = "name_";
+        public static final String DESCRIPTION = "description";
     }
 
     @Fk(table = Client.TABLE_NAME, id = Client.Columns.ID, name = Product.Columns.CLIENT, notNull = true)
@@ -25,6 +27,9 @@ public class Product extends Entity implements HasClient, HasName {
 
     @Column(name = Product.Columns.NAME, isText = true)
     private String name;
+
+    @Column(name = Product.Columns.DESCRIPTION, isText = true)
+    private String description;
 
     @Override
     public String getName() {
@@ -44,6 +49,16 @@ public class Product extends Entity implements HasClient, HasName {
     @Override
     public void setClient(Client client) {
         this.client = client;
+    }
+
+    @Override
+    public String getDescription() {
+        return description;
+    }
+
+    @Override
+    public void setDescription(String description) {
+        this.description = description;
     }
 
 }
