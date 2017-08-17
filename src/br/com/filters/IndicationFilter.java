@@ -19,6 +19,7 @@ public class IndicationFilter extends EntityFilter {
         public static final String PERSON_TYPE = Entity.fullColumn(Indication.TABLE_NAME, Indication.Columns.PERSON_TYPE);
     }
 
+    private String identifier;
     private Date minRegistrationDate, maxRegistrationDate;
     private Integer user, client;
     private IndicationStatus status;
@@ -26,6 +27,14 @@ public class IndicationFilter extends EntityFilter {
     private Long  phone;
     private String document;
 
+    public String getIdentifier() {
+        return identifier;
+    }
+
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
+    
     public Date getMinRegistrationDate() {
         return minRegistrationDate;
     }
