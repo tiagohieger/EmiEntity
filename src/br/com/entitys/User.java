@@ -11,7 +11,6 @@ import br.com.constants.HasBank;
 import br.com.constants.HasLogin;
 import br.com.constants.HasName;
 import br.com.constants.HasPassword;
-import br.com.constants.HasPersonType;
 import br.com.constants.HasPhone;
 import br.com.constants.HasType;
 import br.com.constants.HasUser;
