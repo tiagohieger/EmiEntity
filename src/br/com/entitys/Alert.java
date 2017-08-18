@@ -8,6 +8,7 @@ import br.com.constants.HasAlertScreen;
 import br.com.constants.HasSearchKey;
 import br.com.constants.HasText;
 import br.com.constants.HasUser;
+import java.util.Date;
 
 @Table(name = Alert.TABLE_NAME)
 public class Alert extends Entity implements HasUser, HasText, HasSearchKey, HasAlertScreen {
@@ -23,6 +24,7 @@ public class Alert extends Entity implements HasUser, HasText, HasSearchKey, Has
         public static final String TEXT = "text_";
         public static final String SEARCH_KEY = "search_key";
         public static final String SCREEN = "screen";
+        public static final String WAKE_UP = "wake_up";
     }
 
     @Fk(table = User.TABLE_NAME, id = User.Columns.ID, name = Alert.Columns.USER, notNull = true)
@@ -36,6 +38,9 @@ public class Alert extends Entity implements HasUser, HasText, HasSearchKey, Has
     
     @Column(isText = true, name = Alert.Columns.SCREEN)
     private AlertScreen screen;
+    
+    @Column(defaultValue = "now()" , notNull = true, name = Alert.Columns.WAKE_UP)
+    private Date wakeUp;
 
     @Override
     public User getUser() {
@@ -77,4 +82,11 @@ public class Alert extends Entity implements HasUser, HasText, HasSearchKey, Has
         this.screen = screen;
     }
 
+    public Date getWakeUp() {
+        return wakeUp;
+    }
+
+    public void setWakeUp(Date wakeUp) {
+        this.wakeUp = wakeUp;
+    }
 }
