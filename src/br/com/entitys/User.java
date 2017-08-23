@@ -8,6 +8,7 @@ import br.com.constants.HasAddress;
 import br.com.constants.HasDocument;
 import br.com.constants.HasActive;
 import br.com.constants.HasBank;
+import br.com.constants.HasEmail;
 import br.com.constants.HasLogin;
 import br.com.constants.HasName;
 import br.com.constants.HasPassword;
@@ -20,7 +21,7 @@ import java.util.List;
 
 @Table(name = User.TABLE_NAME)
 public class User extends Entity implements HasAddress, HasName, HasLogin, HasPassword,
-        HasPhone, HasDocument, HasType<PersonType>, HasActive, HasBank, HasUser {
+        HasPhone, HasDocument, HasType<PersonType>, HasActive, HasBank, HasUser, HasEmail {
 
     private static final long serialVersionUID = 7034854585695742021L;
 
@@ -39,6 +40,7 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
         public static final String IS_ACTIVE = "is_active";
         public static final String PHOTO = "photo";
         public static final String USER = "user_";
+        public static final String EMAIL = "email";
     }
 
     @Fk(table = User.TABLE_NAME, id = User.Columns.ID, name = User.Columns.USER)
@@ -67,6 +69,9 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
 
     @Column(name = User.Columns.IS_ACTIVE, notNull = true, defaultValue = "true")
     private Boolean isActive;
+
+    @Column(name = User.Columns.EMAIL, isText = true)
+    private String email;
 
     @Transient
     private List<Bank> banks = new LinkedList<>();
@@ -159,6 +164,16 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
     @Override
     public void setIsActive(Boolean isActive) {
         this.isActive = isActive;
+    }
+
+    @Override
+    public String getEmail() {
+        return email;
+    }
+
+    @Override
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     @Override

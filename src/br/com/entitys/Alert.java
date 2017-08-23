@@ -8,10 +8,11 @@ import br.com.constants.HasAlertScreen;
 import br.com.constants.HasSearchKey;
 import br.com.constants.HasText;
 import br.com.constants.HasUser;
+import br.com.constants.HasWakeUp;
 import java.util.Date;
 
 @Table(name = Alert.TABLE_NAME)
-public class Alert extends Entity implements HasUser, HasText, HasSearchKey, HasAlertScreen {
+public class Alert extends Entity implements HasUser, HasText, HasSearchKey, HasAlertScreen, HasWakeUp {
 
     private static final long serialVersionUID = -3882404252108175549L;
 
@@ -32,14 +33,14 @@ public class Alert extends Entity implements HasUser, HasText, HasSearchKey, Has
 
     @Column(isText = true, name = Alert.Columns.TEXT)
     private String text;
-    
+
     @Column(isText = true, name = Alert.Columns.SEARCH_KEY)
     private String searchKey;
-    
+
     @Column(isText = true, name = Alert.Columns.SCREEN)
     private AlertScreen screen;
-    
-    @Column(defaultValue = "now()" , notNull = true, name = Alert.Columns.WAKE_UP)
+
+    @Column(defaultValue = "now()", notNull = true, name = Alert.Columns.WAKE_UP)
     private Date wakeUp;
 
     @Override
@@ -82,10 +83,12 @@ public class Alert extends Entity implements HasUser, HasText, HasSearchKey, Has
         this.screen = screen;
     }
 
+    @Override
     public Date getWakeUp() {
         return wakeUp;
     }
 
+    @Override
     public void setWakeUp(Date wakeUp) {
         this.wakeUp = wakeUp;
     }
