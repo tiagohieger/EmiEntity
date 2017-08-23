@@ -13,6 +13,7 @@ import br.com.constants.HasLogin;
 import br.com.constants.HasName;
 import br.com.constants.HasPassword;
 import br.com.constants.HasPhone;
+import br.com.constants.HasSessionId;
 import br.com.constants.HasType;
 import br.com.constants.HasUser;
 import br.com.constants.PersonType;
@@ -21,7 +22,7 @@ import java.util.List;
 
 @Table(name = User.TABLE_NAME)
 public class User extends Entity implements HasAddress, HasName, HasLogin, HasPassword,
-        HasPhone, HasDocument, HasType<PersonType>, HasActive, HasBank, HasUser, HasEmail {
+        HasPhone, HasDocument, HasType<PersonType>, HasActive, HasBank, HasUser, HasEmail, HasSessionId {
 
     private static final long serialVersionUID = 7034854585695742021L;
 
@@ -75,6 +76,9 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
 
     @Transient
     private List<Bank> banks = new LinkedList<>();
+    
+    @Transient
+    private String sessionId;
 
     @Override
     public User getUser() {
@@ -186,4 +190,13 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
         this.banks = banks;
     }
 
+    @Override
+    public String getSessionId() {
+        return sessionId;
+    }
+
+    @Override
+    public void setSessionId(String sessionId) {
+        this.sessionId = sessionId;
+    }
 }

@@ -2,15 +2,15 @@ package br.com.entitys;
 
 import br.com.annotations.Column;
 import br.com.annotations.Table;
-import br.com.constants.HasCEP;
 import br.com.constants.HasCity;
 import br.com.constants.HasNeighborhood;
 import br.com.constants.HasNumber;
 import br.com.constants.HasState;
 import br.com.constants.HasStreet;
+import br.com.constants.HasCep;
 
 @Table(name = Address.TABLE_NAME)
-public class Address extends Entity implements HasCEP, HasStreet, HasNeighborhood, HasNumber, HasCity, HasState {
+public class Address extends Entity implements HasCep, HasStreet, HasNeighborhood, HasNumber, HasCity, HasState {
 
     private static final long serialVersionUID = -8459733558008185220L;
 
@@ -28,7 +28,7 @@ public class Address extends Entity implements HasCEP, HasStreet, HasNeighborhoo
     }
 
     @Column(name = Address.Columns.CEP)
-    private Integer CEP;
+    private Integer cep;
 
     @Column(name = Address.Columns.STREET, isText = true)
     private String street;
@@ -46,13 +46,13 @@ public class Address extends Entity implements HasCEP, HasStreet, HasNeighborhoo
     private String state;
 
     @Override
-    public Integer getCEP() {
-        return CEP;
+    public Integer getCep() {
+        return cep;
     }
 
     @Override
-    public void setCEP(Integer CEP) {
-        this.CEP = CEP;
+    public void setCep(Integer cep) {
+        this.cep = cep;
     }
 
     @Override
