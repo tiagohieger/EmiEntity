@@ -47,7 +47,7 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
     @Fk(table = User.TABLE_NAME, id = User.Columns.ID, name = User.Columns.USER)
     private User user;
 
-    @Fk(table = Address.TABLE_NAME, id = Address.Columns.ID, name = User.Columns.ADDRESS, notNull = true)
+    @Fk(table = Address.TABLE_NAME, id = Address.Columns.ID, name = User.Columns.ADDRESS)
     private Address address;
 
     @Column(name = User.Columns.NAME, isText = true)
