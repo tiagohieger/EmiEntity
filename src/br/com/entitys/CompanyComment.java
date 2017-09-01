@@ -3,13 +3,17 @@ package br.com.entitys;
 import br.com.annotations.Column;
 import br.com.annotations.Fk;
 import br.com.annotations.Table;
+import br.com.annotations.Transient;
 import br.com.constants.HasClient;
 import br.com.constants.HasCompanyComment;
+import br.com.constants.HasCompanysComments;
 import br.com.constants.HasText;
 import br.com.constants.HasUser;
+import java.util.LinkedList;
+import java.util.List;
 
 @Table(name = CompanyComment.TABLE_NAME)
-public class CompanyComment extends Entity implements HasUser, HasCompanyComment, HasClient, HasText {
+public class CompanyComment extends Entity implements HasUser, HasCompanyComment, HasClient, HasText, HasCompanysComments {
 
     private static final long serialVersionUID = 3441815637028753587L;
 
@@ -35,6 +39,9 @@ public class CompanyComment extends Entity implements HasUser, HasCompanyComment
 
     @Column(isText = true, name = CompanyComment.Columns.TEXT)
     private String text;
+
+    @Transient
+    private List<CompanyComment> companysComments = new LinkedList<>();
 
     @Override
     public User getUser() {
@@ -74,6 +81,16 @@ public class CompanyComment extends Entity implements HasUser, HasCompanyComment
     @Override
     public void setText(String text) {
         this.text = text;
+    }
+
+    @Override
+    public List<CompanyComment> getCompanysComments() {
+        return companysComments;
+    }
+
+    @Override
+    public void setCompanysComments(List<CompanyComment> companysComments) {
+        this.companysComments = companysComments;
     }
 
 }
