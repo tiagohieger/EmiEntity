@@ -37,12 +37,12 @@ public class Client extends Entity implements HasAddress, HasUser, HasContact, H
         public static final String ADDRESS = "address";
         public static final String USER = "user_";
         public static final String CONTACT = "contact";
-        public static final String NAME = "name";
+        public static final String NAME = "name_";
         public static final String FANTASY = "fantasy";
         public static final String EMAIL = "email";
         public static final String PHONE = "phone";
         public static final String PHONE_TYPE = "phone_type";
-        public static final String TYPE = "type";
+        public static final String TYPE = "type_";
         public static final String DOCUMENT = "document_";
         public static final String IS_ACTIVE = "is_active";
         public static final String DESCRIPTION = "description";
