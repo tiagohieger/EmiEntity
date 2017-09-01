@@ -37,7 +37,7 @@ public class User extends Entity implements HasAddress, HasName, HasLogin, HasPa
         public static final String PASSWORD = "password_";
         public static final String PHONE = "phone";
         public static final String DOCUMENT = "document_";
-        public static final String TYPE = "type";
+        public static final String TYPE = "type_";
         public static final String IS_ACTIVE = "is_active";
         public static final String PHOTO = "photo";
         public static final String USER = "user_";
