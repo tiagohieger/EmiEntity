@@ -61,13 +61,13 @@ public class Client extends Entity implements HasAddress, HasUser, HasContact, H
     @Column(name = Client.Columns.CONTACT, isText = true)
     private String contact;
 
-    @Column(name = Client.Columns.FANTASY, isText = true, unique = true)
+    @Column(name = Client.Columns.FANTASY, isText = true)
     private String fantasy;
 
     @Column(name = Client.Columns.EMAIL, isText = true, unique = true)
     private String email;
 
-    @Column(name = Client.Columns.PHONE, isBigInt = true, unique = true)
+    @Column(name = Client.Columns.PHONE, isBigInt = true)
     private Long phone;
 
     @Column(name = Client.Columns.PHONE_TYPE, isText = true)
